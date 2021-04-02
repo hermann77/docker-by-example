@@ -46,6 +46,8 @@ or
 
 # MySQL-Knowledge, some ones related to docker
 
+## After restart container the created databases still be there. But the GLOBAL MySQL-variables (like long_query_time) are lost.
+
 ## Connect to MariaDB in container
 ```mysql -u root -h127.0.0.1 -P3306 --protocol=TCP -p```
 
