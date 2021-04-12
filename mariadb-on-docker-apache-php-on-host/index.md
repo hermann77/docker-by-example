@@ -33,8 +33,8 @@ or
 # Show containers (both running and stopped)
 ```docker ps -a```
 
-# Stop container
-```docker stop mariadb```
+# Start|stop container
+```docker start|stop mariadb```
 
 # Remove container
 ```docker rm mariadb```
