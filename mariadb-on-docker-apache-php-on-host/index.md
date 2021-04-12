@@ -30,8 +30,8 @@ or
 # Show downloaded images (some maybe used in containers, some not)
 ```docker images```
 
-# Show containers
-```docker ps```
+# Show containers (both running and stopped)
+```docker ps -a```
 
 # Stop container
 ```docker stop mariadb```
