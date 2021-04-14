@@ -27,6 +27,8 @@ or
 # Login to the containers console
 ```docker exec -it mariadb bash```
 
+More info: https://docs.docker.com/engine/reference/run/
+
 # Show downloaded images (some maybe used in containers, some not)
 ```docker images```
 
