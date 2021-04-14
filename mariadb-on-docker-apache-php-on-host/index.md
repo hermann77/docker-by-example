@@ -67,3 +67,16 @@ More info: https://docs.docker.com/engine/reference/run/
 
 ## Change password of DB-root-user
 ```ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<MY_PASSWORD>';```
+
+### If connection from outside doesn't work
+At first, we try to set ```-e MYSQL_ROOT_HOST=%``` on creating the container.
+
+If it doesn't work: some docker images ignores environment variable directives (like ```-e MYSQL_ROOT_PASSWORD=<MY_PASSWORD> -e MYSQL_ROOT_HOST=%```), so we have to add the (root) user on other hosts (```%```) by yourself manually:
+
+```docker exec -it <YOUR_CONTAINER_NAME> bash```
+
+```mysql -u root -p<MY_PASSWORD>```
+
+```GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '<MY_PASSWORD>';```
+
+```FLUSH PRIVILEGES;```
