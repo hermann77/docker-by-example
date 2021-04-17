@@ -100,3 +100,6 @@ https://davejansen.com/how-to-dump-and-restore-a-mariadb-mysql-database-from-a-d
 
 ## Show mysql queries log 
 https://tableplus.com/blog/2018/10/how-to-show-queries-log-in-mysql.html
+
+## Issues rel. to connection to mariaDB/MySQL from outside the container (from host)
+https://github.com/docker-library/mysql/issues/527
