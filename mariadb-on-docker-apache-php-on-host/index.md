@@ -1,7 +1,7 @@
 
-# Starting MariaDB container instance with name 'mariadb'
+# Starting MariaDB container instance with name '<CONTAINER_NAME>'
 
-```docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<MY_PASSWORD> -e MYSQL_ROOT_HOST=% -d mariadb:latest```
+```docker run --name <CONTAINER_NAME> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<MY_PASSWORD> -e MYSQL_ROOT_HOST=% -d mariadb:latest```
 
 ```MYSQL_ROOT_PASSWORD=<MY_PASSWORD>```
 to connect to DB from host with password
@@ -13,19 +13,19 @@ is needed to connect from host
 is mandatory to connect to the DB from host
 
 ## Login to MariaDB in container
-```docker exec -it mariadb mysql -u root -p<MY_PASSWORD> test_database```
+```docker exec -it <CONTAINER_NAME> mysql -u root -p<MY_PASSWORD> test_database```
 
 
 ## Import DB-dump from host to container database
-```docker exec -i mariadb mysql -u root -p<MY_PASSWORD> < test_database.sql```
+```docker exec -i <CONTAINER_NAME> mysql -u root -p<MY_PASSWORD> < test_database.sql```
 
 ## Export DB-dump from DB in container
-```docker exec -it mariadb mysqldump -u root -p<MY_PASSWORD> test_database > test.sql```
+```docker exec -it <CONTAINER_NAME> mysqldump -u root -p<MY_PASSWORD> test_database > test.sql```
 or
-```docker exec mariadb sh -c 'exec mysqldump -uroot -p<MY_PASSWORD> test_database' > test_database.sql```
+```docker exec <CONTAINER_NAME> sh -c 'exec mysqldump -uroot -p<MY_PASSWORD> test_database' > test_database.sql```
 
 ## Login to the containers console
-```docker exec -it mariadb bash```
+```docker exec -it <CONTAINER_NAME> bash```
 
 More info: https://docs.docker.com/engine/reference/run/
 
@@ -35,14 +35,17 @@ More info: https://docs.docker.com/engine/reference/run/
 ## Show containers (both running and stopped)
 ```docker ps -a```
 
+## Show logs of container
+```docker container logs -f <CONTAINER_NAME>```
+
 ## Start|stop container
-```docker start|stop mariadb```
+```docker start|stop <CONTAINER_NAME>```
 
 ## Remove container
-```docker rm mariadb```
+```docker rm <CONTAINER_NAME>```
 
 ## Show local IP-address of container
-```docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mariadb```
+```docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER_NAME>```
 
 
 
