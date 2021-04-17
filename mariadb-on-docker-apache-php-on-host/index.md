@@ -12,36 +12,36 @@ is needed to connect from host
 ```-p 3306:3306```
 is mandatory to connect to the DB from host
 
-# Login to MariaDB in container
+## Login to MariaDB in container
 ```docker exec -it mariadb mysql -u root -p<MY_PASSWORD> test_database```
 
 
-# Import DB-dump from host to container database
+## Import DB-dump from host to container database
 ```docker exec -i mariadb mysql -u root -p<MY_PASSWORD> < test_database.sql```
 
-# Export DB-dump from DB in container
+## Export DB-dump from DB in container
 ```docker exec -it mariadb mysqldump -u root -p<MY_PASSWORD> test_database > test.sql```
 or
 ```docker exec mariadb sh -c 'exec mysqldump -uroot -p<MY_PASSWORD> test_database' > test_database.sql```
 
-# Login to the containers console
+## Login to the containers console
 ```docker exec -it mariadb bash```
 
 More info: https://docs.docker.com/engine/reference/run/
 
-# Show downloaded images (some maybe used in containers, some not)
+## Show downloaded images (some maybe used in containers, some not)
 ```docker images```
 
-# Show containers (both running and stopped)
+## Show containers (both running and stopped)
 ```docker ps -a```
 
-# Start|stop container
+## Start|stop container
 ```docker start|stop mariadb```
 
-# Remove container
+## Remove container
 ```docker rm mariadb```
 
-# Show local IP-address of container
+## Show local IP-address of container
 ```docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mariadb```
 
 
@@ -68,7 +68,7 @@ More info: https://docs.docker.com/engine/reference/run/
 ## Change password of DB-root-user
 ```ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<MY_PASSWORD>';```
 
-### If connection from outside doesn't work
+## If connection from outside doesn't work
 At first, we try to set ```-e MYSQL_ROOT_HOST=%``` on creating the container.
 
 If it doesn't work: some docker images ignores environment variable directives (like ```-e MYSQL_ROOT_PASSWORD=<MY_PASSWORD> -e MYSQL_ROOT_HOST=%```), so we have to add the (root) user on other hosts (```%```) manually:
@@ -80,3 +80,11 @@ If it doesn't work: some docker images ignores environment variable directives (
 ```GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '<MY_PASSWORD>';```
 
 ```FLUSH PRIVILEGES;```
+
+# Additional information
+
+https://docs.docker.com/engine/reference/run/
+
+https://hub.docker.com/_/mariadb
+
+
