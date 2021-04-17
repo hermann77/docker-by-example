@@ -87,4 +87,7 @@ https://docs.docker.com/engine/reference/run/
 
 https://hub.docker.com/_/mariadb
 
+## How to dump & restore a MariaDB/MySQL database from a docker container
+https://davejansen.com/how-to-dump-and-restore-a-mariadb-mysql-database-from-a-docker-container/
+
 
