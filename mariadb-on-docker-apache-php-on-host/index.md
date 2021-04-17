@@ -86,9 +86,14 @@ If it doesn't work: some docker images ignores environment variable directives (
 
 # Additional information
 
+## Docker run reference
 https://docs.docker.com/engine/reference/run/
 
+## Docker mariadb image quick reference
 https://hub.docker.com/_/mariadb
+
+## Installing and Using MariaDB via Docker
+https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/
 
 ## How to dump & restore a MariaDB/MySQL database from a docker container
 https://davejansen.com/how-to-dump-and-restore-a-mariadb-mysql-database-from-a-docker-container/
